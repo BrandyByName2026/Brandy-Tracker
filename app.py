@@ -4,8 +4,13 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-REDMINE_URL = "https://matrix.philsys.gov.ph"
-API_KEY = "cb664261700fd411bfda36fc14ea8d46bad4fbc7"  # Redmine API Key mo
+# Basahin mula sa Streamlit Secrets (fall back sa hardcoded kung wala)
+try:
+    REDMINE_URL = st.secrets["REDMINE_URL"]
+    API_KEY = st.secrets["API_KEY"]
+except Exception:
+    REDMINE_URL = "https://matrix.philsys.gov.ph"
+    API_KEY = "cb664261700fd411bfda36fc14ea8d46bad4fbc7"
 
 # Page Configuration
 st.set_page_config(page_title="PSA FindMyTRN Tracker", page_icon="🔍", layout="centered")
