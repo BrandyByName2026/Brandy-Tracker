@@ -4,7 +4,7 @@ import urllib3
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Basahin mula sa Streamlit Secrets (fall back sa hardcoded kung wala)
+# Basahin mula sa Streamlit Secrets o gamitin ang default kung lokal
 try:
     REDMINE_URL = st.secrets["REDMINE_URL"]
     API_KEY = st.secrets["API_KEY"]
